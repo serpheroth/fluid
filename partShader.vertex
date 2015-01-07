@@ -1,0 +1,16 @@
+#version 330 core
+
+layout(location = 0) in vec3 vertexPosition_modelspace;
+layout(location = 1) in vec3 c;
+layout(location = 2) in float radius;
+
+uniform mat4 MVP;
+
+out vec3 col;
+
+void main(){
+	gl_Position=MVP*vec4(vertexPosition_modelspace,1);
+	col=c;
+	gl_PointSize=radius*1000;
+}
+
